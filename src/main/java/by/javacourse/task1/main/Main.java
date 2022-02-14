@@ -1,27 +1,32 @@
 package by.javacourse.task1.main;
 
 import by.javacourse.task1.creator.impl.CreatorArrayImpl;
-import by.javacourse.task1.entity.CustomArray;
+import by.javacourse.task1.entity.CustomArrayImpl;
 import by.javacourse.task1.exception.CustomException;
 import by.javacourse.task1.exception.ReaderException;
 import by.javacourse.task1.parser.StringToIntegerParser;
 import by.javacourse.task1.parser.impl.StringToIntegerParserImpl;
 import by.javacourse.task1.reader.impl.ReaderFromFileImpl;
 import by.javacourse.task1.service.impl.WorkWithArrayImpl;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
 
-    public static void main(String [] args) throws ReaderException, CustomException {
+    public static void main(String[] args) throws ReaderException, CustomException {
         ReaderFromFileImpl reader = new ReaderFromFileImpl();
         List<String> arr = reader.readFile("resource/array.txt");
         StringToIntegerParser stringToInteger = new StringToIntegerParserImpl();
-        int [] array = stringToInteger.parserStrToInt(arr);
+        int[] array = stringToInteger.parserStrToInt(arr);
         CreatorArrayImpl creatorArray = new CreatorArrayImpl();
-        CustomArray result = creatorArray.createArray(array);
+        CustomArrayImpl result = creatorArray.createArray(array);
         WorkWithArrayImpl workWithArray = new WorkWithArrayImpl();
+        System.out.println(Arrays.toString(result.getArray()));
+        long id = 1;
+        result.setId(id);
+        result.setElement(2, 5);
         System.out.println(Arrays.toString(result.getArray()));
         System.out.println(workWithArray.searchMinElement(result));
         System.out.println(workWithArray.searchMaxElement(result));
@@ -33,6 +38,7 @@ public class Main {
         System.out.println(Arrays.toString(workWithArray.bubbleSort(result).getArray()));
         System.out.println(Arrays.toString(workWithArray.insertionSort(result).getArray()));
         System.out.println(Arrays.toString(workWithArray.selectionSort(result).getArray()));
+
 
     }
 }

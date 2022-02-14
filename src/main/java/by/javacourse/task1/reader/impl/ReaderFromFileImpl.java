@@ -11,6 +11,7 @@ import java.util.List;
 
 public class ReaderFromFileImpl implements ReaderFromFile {
     private static final Logger logger = LogManager.getLogger();
+
     @Override
     public List<String> readFile(String pathToFile) throws ReaderException {
         List<String> listNumbers = new ArrayList<>();
@@ -27,7 +28,7 @@ public class ReaderFromFileImpl implements ReaderFromFile {
         } catch (FileNotFoundException e) {
             logger.info("File " + pathToFile + " not Found");
             throw new ReaderException("File " + pathToFile + " not Found");
-        }catch
+        } catch
         (IOException e) {
 
             logger.info("File " + pathToFile + " is not correct");

@@ -1,7 +1,9 @@
 package by.javacourse.task1.creator;
 
-import by.javacourse.task1.entity.CustomArray;
+import by.javacourse.task1.entity.CustomArrayImpl;
 
 public interface CreatorArray {
-    CustomArray createArray (int[] array);
+    CustomArrayImpl createArray(int[] array);
+
+    CustomArrayImpl createRandomArray(int amount);
 }

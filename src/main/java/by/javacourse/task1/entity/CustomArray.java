@@ -1,21 +1,13 @@
 package by.javacourse.task1.entity;
 
-public class CustomArray {
-    private int [] array;
-    public CustomArray(){
+import by.javacourse.task1.exception.CustomException;
 
-    }
-    public CustomArray(int[] array) {
-        this.array = array;
-    }
+public abstract class CustomArray {
+    long id;
+    int[] array;
+    String name;
 
-    public void setArray(int[] array) {
-        this.array = array;
-    }
+    public abstract int[] getArray();
 
-    public int[] getArray() {
-        return array;
-    }
-
+    public abstract void setArray(int[] array) throws CustomException;
 }
-

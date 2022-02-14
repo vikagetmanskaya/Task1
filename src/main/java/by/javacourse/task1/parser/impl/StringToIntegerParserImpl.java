@@ -8,12 +8,13 @@ import java.util.List;
 
 public class StringToIntegerParserImpl implements StringToIntegerParser {
     private static final String REGEX = "\s";
+
     @Override
     public int[] parserStrToInt(List<String> stringNumbers) {
         List<Integer> numberList = new ArrayList<>();
         StringValidatorImpl stringValidator = new StringValidatorImpl();
         for (int i = 0; i < stringNumbers.size(); i++) {
-            if(stringValidator.validateStr(stringNumbers.get(i))) {
+            if (stringValidator.validateStr(stringNumbers.get(i))) {
                 String[] stringArray = stringNumbers.get(i).split(REGEX);
                 for (String number : stringArray) {
                     numberList.add(Integer.parseInt(number));
