@@ -7,9 +7,12 @@ import by.javacourse.task1.service.WorkWithArray;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Arrays;
+
 public class WorkWithArrayImpl implements WorkWithArray {
-    CreatorArrayImpl creatorArray = new CreatorArrayImpl();
+
     private static final Logger logger = LogManager.getLogger();
+    CreatorArrayImpl creatorArray = new CreatorArrayImpl();
 
     @Override
     public int searchMinElement(CustomArrayImpl array) {
@@ -22,6 +25,12 @@ public class WorkWithArrayImpl implements WorkWithArray {
         return minElement;
     }
 
+    public int searchMinStream(CustomArrayImpl array) {
+        int min = Arrays.stream(array.getArray()).min().getAsInt();
+        return min;
+    }
+
+
     @Override
     public int searchMaxElement(CustomArrayImpl array) {
         int maxElement = array.getArray()[0];
@@ -31,6 +40,11 @@ public class WorkWithArrayImpl implements WorkWithArray {
             }
         }
         return maxElement;
+    }
+
+    public int searchMaxStream(CustomArrayImpl array) {
+        int min = Arrays.stream(array.getArray()).max().getAsInt();
+        return min;
     }
 
     @Override
@@ -55,10 +69,15 @@ public class WorkWithArrayImpl implements WorkWithArray {
             averageValue = sum / array.getArray().length;
         } catch (ArithmeticException e) {
             logger.info("Division by zero");
-            throw new CustomException("Array length = 0");
+            throw new CustomException("Array length = 0 " + e);
         }
 
         return averageValue;
+    }
+
+    public double searchAverageStream(CustomArrayImpl array) {
+        double average = Arrays.stream(array.getArray()).average().getAsDouble();
+        return average;
     }
 
     @Override
@@ -67,6 +86,11 @@ public class WorkWithArrayImpl implements WorkWithArray {
         for (int i = 0; i < array.getArray().length; i++) {
             sum = sum + array.getArray()[i];
         }
+        return sum;
+    }
+
+    public int searchSumStream(CustomArrayImpl array) {
+        int sum = Arrays.stream(array.getArray()).sum();
         return sum;
     }
 

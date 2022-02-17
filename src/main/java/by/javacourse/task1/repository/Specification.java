@@ -1,8 +1,8 @@
 package by.javacourse.task1.repository;
 
 import by.javacourse.task1.entity.CustomArrayImpl;
+import by.javacourse.task1.exception.CustomException;
 
-@FunctionalInterface
 public interface Specification {
-    boolean specify(CustomArrayImpl customArray);
+    boolean specify(CustomArrayImpl customArray) throws CustomException;
 }

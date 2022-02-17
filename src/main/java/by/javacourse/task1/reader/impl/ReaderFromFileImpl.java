@@ -15,8 +15,7 @@ public class ReaderFromFileImpl implements ReaderFromFile {
     @Override
     public List<String> readFile(String pathToFile) throws ReaderException {
         List<String> listNumbers = new ArrayList<>();
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(pathToFile));
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(pathToFile))){
             logger.info("Reading file and connection with file");
             String currentLine;
 
@@ -27,12 +26,12 @@ public class ReaderFromFileImpl implements ReaderFromFile {
 
         } catch (FileNotFoundException e) {
             logger.info("File " + pathToFile + " not Found");
-            throw new ReaderException("File " + pathToFile + " not Found");
+            throw new ReaderException("File " + pathToFile + " not Found " + e);
         } catch
         (IOException e) {
 
             logger.info("File " + pathToFile + " is not correct");
-            throw new ReaderException("Input/Output exception");
+            throw new ReaderException("Input/Output exception " + e);
         }
         return listNumbers;
     }

@@ -4,14 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WareHouse {
-    private Map<Long, ArrayParameters> arrayMap;
     private static WareHouse instance;
+    private Map<Long, ArrayParameters> arrayMap;
+
 
     private WareHouse() {
         this.arrayMap = new HashMap<>();
     }
-    public static WareHouse getInstance(){
-        if(instance == null){
+
+    public static WareHouse getInstance() {
+        if (instance == null) {
             instance = new WareHouse();
         }
         return instance;

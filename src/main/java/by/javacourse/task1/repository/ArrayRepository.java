@@ -1,23 +1,27 @@
 package by.javacourse.task1.repository;
 
 import by.javacourse.task1.entity.CustomArrayImpl;
+import by.javacourse.task1.exception.CustomException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-public class Repository {
+public class ArrayRepository {
+    private static final Logger logger = LogManager.getLogger();
+    private static ArrayRepository instance;
     private List<CustomArrayImpl> customArrays;
-    private static Repository instance;
 
-    private Repository() {
+
+    private ArrayRepository() {
         customArrays = new ArrayList<>();
     }
 
-    public static Repository getInstance() {
+    public static ArrayRepository getInstance() {
         if (instance == null) {
-            instance = new Repository();
+            instance = new ArrayRepository();
         }
         return instance;
     }
@@ -49,10 +53,15 @@ public class Repository {
     public List<CustomArrayImpl> query(Specification specification) {
         List<CustomArrayImpl> result = new ArrayList<>();
         for (int i = 0; i < customArrays.size(); i++) {
-            if (specification.specify(customArrays.get(i))) {
-                result.add(customArrays.get(i));
+            try {
+                if (specification.specify(customArrays.get(i))) {
+                    result.add(customArrays.get(i));
+                }
+            } catch (CustomException e) {
+                logger.info("Problems with arithmetic " + e);
             }
         }
         return result;
     }
+
 }

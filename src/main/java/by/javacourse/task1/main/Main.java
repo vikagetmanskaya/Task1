@@ -24,21 +24,16 @@ public class Main {
         CustomArrayImpl result = creatorArray.createArray(array);
         WorkWithArrayImpl workWithArray = new WorkWithArrayImpl();
         System.out.println(Arrays.toString(result.getArray()));
-        long id = 1;
-        result.setId(id);
-        result.setElement(2, 5);
-        System.out.println(Arrays.toString(result.getArray()));
-        System.out.println(workWithArray.searchMinElement(result));
+        System.out.println(workWithArray.searchMinStream(result));
         System.out.println(workWithArray.searchMaxElement(result));
         System.out.println(workWithArray.averageValueOfElement(result));
-        System.out.println(workWithArray.sumOfElements(result));
+        System.out.println(workWithArray.searchSumStream(result));
         System.out.println(workWithArray.amountOfPositiveElements(result));
         System.out.println(workWithArray.amountOfNegativeElements(result));
         System.out.println(Arrays.toString(workWithArray.changeElements(result, 2).getArray()));
         System.out.println(Arrays.toString(workWithArray.bubbleSort(result).getArray()));
         System.out.println(Arrays.toString(workWithArray.insertionSort(result).getArray()));
         System.out.println(Arrays.toString(workWithArray.selectionSort(result).getArray()));
-
 
     }
 }
