@@ -1,6 +1,6 @@
 package by.javacourse.task1.repository.impl;
 
-import by.javacourse.task1.entity.CustomArrayImpl;
+import by.javacourse.task1.entity.CustomArray;
 import by.javacourse.task1.repository.Specification;
 import by.javacourse.task1.service.impl.WorkWithArrayImpl;
 
@@ -12,7 +12,7 @@ public class MaxSpecification implements Specification {
     }
 
     @Override
-    public boolean specify(CustomArrayImpl customArray) {
+    public boolean specify(CustomArray customArray) {
         WorkWithArrayImpl workWithArray = new WorkWithArrayImpl();
         boolean result = workWithArray.searchMaxElement(customArray) < highValue;
         return result;

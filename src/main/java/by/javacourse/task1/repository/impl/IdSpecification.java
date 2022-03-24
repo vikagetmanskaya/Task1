@@ -1,6 +1,6 @@
 package by.javacourse.task1.repository.impl;
 
-import by.javacourse.task1.entity.CustomArrayImpl;
+import by.javacourse.task1.entity.CustomArray;
 import by.javacourse.task1.repository.Specification;
 
 public class IdSpecification implements Specification {
@@ -11,7 +11,7 @@ public class IdSpecification implements Specification {
     }
 
     @Override
-    public boolean specify(CustomArrayImpl customArray) {
+    public boolean specify(CustomArray customArray) {
         boolean result = customArray.getId() == id;
         return result;
     }

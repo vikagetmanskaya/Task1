@@ -1,36 +1,34 @@
 package by.javacourse.task1.service;
 
-import by.javacourse.task1.entity.CustomArrayImpl;
+import by.javacourse.task1.entity.CustomArray;
 import by.javacourse.task1.exception.CustomException;
 
-import java.util.Arrays;
-
 public interface WorkWithArray {
-    int searchMinElement(CustomArrayImpl array);
+    int searchMinElement(CustomArray array);
 
-    int searchMinStream(CustomArrayImpl array);
+    int searchMinStream(CustomArray array);
 
-    int searchMaxElement(CustomArrayImpl array);
+    int searchMaxElement(CustomArray array);
 
-    int searchMaxStream(CustomArrayImpl array);
+    int searchMaxStream(CustomArray array);
 
-    CustomArrayImpl changeElements(CustomArrayImpl array, int element);
+    CustomArray changeElements(CustomArray array, int element);
 
-    double averageValueOfElement(CustomArrayImpl array) throws CustomException;
+    double averageValueOfElement(CustomArray array) throws CustomException;
 
-    double searchAverageStream(CustomArrayImpl array);
+    double searchAverageStream(CustomArray array);
 
-    int sumOfElements(CustomArrayImpl array);
+    int sumOfElements(CustomArray array);
 
-    int searchSumStream(CustomArrayImpl array);
+    int searchSumStream(CustomArray array);
 
-    int amountOfPositiveElements(CustomArrayImpl array);
+    int amountOfPositiveElements(CustomArray array);
 
-    int amountOfNegativeElements(CustomArrayImpl array);
+    int amountOfNegativeElements(CustomArray array);
 
-    CustomArrayImpl bubbleSort(CustomArrayImpl array);
+    CustomArray bubbleSort(CustomArray array);
 
-    CustomArrayImpl insertionSort(CustomArrayImpl array);
+    CustomArray insertionSort(CustomArray array);
 
-    CustomArrayImpl selectionSort(CustomArrayImpl array);
+    CustomArray selectionSort(CustomArray array);
 }

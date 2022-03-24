@@ -1,7 +1,7 @@
 package by.javacourse.task1.main;
 
 import by.javacourse.task1.creator.impl.CreatorArrayImpl;
-import by.javacourse.task1.entity.CustomArrayImpl;
+import by.javacourse.task1.entity.CustomArray;
 import by.javacourse.task1.exception.CustomException;
 import by.javacourse.task1.exception.ReaderException;
 import by.javacourse.task1.parser.StringToIntegerParser;
@@ -17,11 +17,11 @@ public class Main {
 
     public static void main(String[] args) throws ReaderException, CustomException {
         ReaderFromFileImpl reader = new ReaderFromFileImpl();
-        List<String> arr = reader.readFile("resource/array.txt");
+        List<String> arr = reader.readFile("src/main/resources/array.txt");
         StringToIntegerParser stringToInteger = new StringToIntegerParserImpl();
         int[] array = stringToInteger.parserStrToInt(arr);
         CreatorArrayImpl creatorArray = new CreatorArrayImpl();
-        CustomArrayImpl result = creatorArray.createArray(array);
+        CustomArray result = creatorArray.createArray(array);
         WorkWithArrayImpl workWithArray = new WorkWithArrayImpl();
         System.out.println(Arrays.toString(result.getArray()));
         System.out.println(workWithArray.searchMinStream(result));
@@ -34,6 +34,7 @@ public class Main {
         System.out.println(Arrays.toString(workWithArray.bubbleSort(result).getArray()));
         System.out.println(Arrays.toString(workWithArray.insertionSort(result).getArray()));
         System.out.println(Arrays.toString(workWithArray.selectionSort(result).getArray()));
+
 
     }
 }

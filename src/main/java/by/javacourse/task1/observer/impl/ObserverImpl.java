@@ -1,7 +1,7 @@
 package by.javacourse.task1.observer.impl;
 
 import by.javacourse.task1.entity.ArrayParameters;
-import by.javacourse.task1.entity.CustomArrayImpl;
+import by.javacourse.task1.entity.CustomArray;
 import by.javacourse.task1.entity.WareHouse;
 import by.javacourse.task1.exception.CustomException;
 import by.javacourse.task1.observer.ArrayEvent;
@@ -15,7 +15,7 @@ public class ObserverImpl implements Observer {
 
     @Override
     public void parameterChanged(ArrayEvent arrayEvent) {
-        CustomArrayImpl customArray = arrayEvent.getSource();
+        CustomArray customArray = arrayEvent.getSource();
         WareHouse wareHouse = WareHouse.getInstance();
         ArrayParameters arrayParameters = wareHouse.get(customArray.getId());
         WorkWithArrayImpl workWithArray = new WorkWithArrayImpl();
@@ -24,7 +24,7 @@ public class ObserverImpl implements Observer {
         try {
             average = workWithArray.averageValueOfElement(customArray);
         } catch (CustomException e) {
-            logger.info("Problems with arithmetic " + e);
+            logger.error("Problems with arithmetic ", e);
         }
         int min = workWithArray.searchMinElement(customArray);
         int max = workWithArray.searchMaxElement(customArray);

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StringToIntegerParserImpl implements StringToIntegerParser {
-    private static final String REGEX_EXPRESSION_FOR_ARRAY = "\s";
+    private static final String DELIMITER = "\s";
 
     @Override
     public int[] parserStrToInt(List<String> stringNumbers) {
@@ -15,7 +15,7 @@ public class StringToIntegerParserImpl implements StringToIntegerParser {
         StringValidatorImpl stringValidator = new StringValidatorImpl();
         for (int i = 0; i < stringNumbers.size(); i++) {
             if (stringValidator.validateStr(stringNumbers.get(i))) {
-                String[] stringArray = stringNumbers.get(i).split(REGEX_EXPRESSION_FOR_ARRAY);
+                String[] stringArray = stringNumbers.get(i).split(DELIMITER);
                 for (String number : stringArray) {
                     numberList.add(Integer.parseInt(number));
                 }
